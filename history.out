@@ -1,0 +1,238 @@
+    1  sudo rm /mephi-web/index.html 
+    2  clear
+    3  sudo dnf provides '*/semanage'
+    4  which semanage
+    5  sudo dnf install policycoreutils-python-utils
+    6  clear
+    7  sudo semanage fcontext --help
+    8  semanage --help
+    9  sudo ls /usr/share/nginx/htmlp
+   10  sudo ls /usr/share/nginx/html
+   11  sudo ls -alhZ /usr/share/nginx/html
+   12  sudo semanage fcontext -a -t httpd_sys_content_t "/mephi-web(/.*)?"
+   13  sudo restorecon -Rv /mephi-web
+   14  sudo semanage fcontext -a -t lost_found_t "/mephi-web/lost\+found(/.*)?"
+   15  sudo restorecon -Rv /mephi-web
+   16  sudo semanage fcontext -l | grep -E 'lost.?found'
+   17  ls -ldZ /lost+found
+   18  sudo cp /usr/share/nginx/html/index.html /mephi-web/
+   19  curl https://localhost
+   20  curl https://localhost:80
+   21  curl http://localhost
+   22  clear
+   23  ls /etc/pam.d/
+   24  sudo nano /etc/pam.d/login 
+   25  sudo grep -R "password" /etc/ssh
+   26  sudo grep -R "password" /etc/sshd
+   27  sudo grep -R "password" /etc/ssh
+   28  sudo ssh -T
+   29  sudo sshd -T
+   30  clear
+   31  sudo cat /etc/sshd/sshd.conf
+   32  sudo ls /etc/ssh/
+   33  sudo cat /etc/ssh/sshd_config
+   34  clear
+   35  dnf --help
+   36  dnf updateinfo
+   37  dnf upgrade
+   38  sudo dnf upgrade
+   39  сдуфк
+   40  clear
+   41  ip addr
+   42  ping 1.1.1.1
+   43  ping 8.8.8.8
+   44  ping ya.ru
+   45  clear
+   46  ip addr
+   47  hostnamectl
+   48  hostname
+   49  sudo hostnamectl set-hostname mephi-2026.domain.local
+   50  hostnamectl
+   51  ping 8.8.8.8 > ping.out
+   52  clear
+   53  ls
+   54  rm ping.out
+   55  ls
+   56  clear
+   57  ping --help
+   58  ping -c 5 8.8.8.8 > ping.out
+   59  cat ping.out 
+   60  sudo dnf --help
+   61  sudo dnf install nginx libcap-ng-utils
+   62  sudo dnf download --help
+   63  sudo dnf download --destdir /tmp --downloadonly tcpdump
+   64  cd tmp
+   65  cd /tmp
+   66  ls
+   67  rmp --help
+   68  rpm --help
+   69  sudo rpm install tcpdump-4.99.5-1.red80.i686.rpm
+   70  sudo rpm --install tcpdump-4.99.5-1.red80.i686.rpm
+   71  sudo rpm --install tcpdump-4.99.5-1.red80.x86_64.rpm
+   72  rpm help
+   73  rpm -q tcpdump
+   74  tcpdump --version
+   75  which tcpdump
+   76  sudo ls -alh /usr/sbin/tcpdump
+   77  dnf history > ~/dnf.out
+   78  cat ~/dnf.out 
+   79  clear
+   80  lsblk
+   81  fdiks -l /dev/vdb
+   82  fdisk -l /dev/vdb
+   83  sudo fdisk -l /dev/vdb
+   84  sudo fdisk /dev/vdb
+   85  lsblk
+   86  mkfs --help
+   87  mkfs.ext4 --help
+   88  sudo mkfs.ext4 -L /dev/vdb1
+   89  sudo mkfs.ext4 -L MEPHI_WEB /dev/vdb1
+   90  lsblk
+   91  sudo mkdir /mephi-web
+   92  blkid /dev/vdb1
+   93  sudo blkid /dev/vdb1
+   94  sudo nano /etc/fstab 
+   95  sudo mount -a
+   96  sudo systemctl daemon-reload 
+   97  sudo mount /mephi-web
+   98  sudo nano /etc/fstab 
+   99  sudo mount /mephi-web
+  100  sudo systemctl daemon-reload
+  101  sudo mount /mephi-web
+  102  findmnt /mephi-web 
+  103  dh -ah /mephi-web
+  104  df -ah /mephi-web
+  105  sudo systemctl status
+  106  clear
+  107  sudo systemctl status nginx
+  108  sudo systemctl enable --now nginx
+  109  sudo systemctl status nginx
+  110  clear
+  111  sudo journalctl -u nginx -b > ~/journalctl.out
+  112  cat ~/journalctl.out 
+  113  clear
+  114  sudo useradd --help
+  115  groupadd --help
+  116  sudo groupadd developers
+  117  clear
+  118  sudo useradd -U 5501 -G developers user1
+  119  sudo useradd -u 5501 -G developers user1
+  120  sudo useradd -u 5502 -G developers user2
+  121  sudo useradd -u 5503 -G developers user3
+  122  id user1 && id user2 && id user3
+  123  sudo groupadd -g 4444 curators
+  124  sudo useradd -G curators curator1
+  125  sudo useradd -G curators curator2
+  126  getent group curators
+  127  id curator1
+  128  id curator2
+  129  clear
+  130  sudo mkdir -p /data/mephi-2026
+  131  sudo chown root:developers /data/mephi-2026/
+  132  sudo chmod 2770 /data/mephi-2026/
+  133  sudo setfacl -m g:developers:rwx /data/mephi-2026/
+  134  sudo setfacl -m d:g:developers:rwx /data/mephi-2026/
+  135  sudo setfacl -m d:m:rwx /data/mephi-2026/
+  136  sudo setfacl -m g:curators:rx /data/mephi-2026/
+  137  sudo setfacl -m d:g:curators:rx /data/mephi-2026/
+  138  sudo setfacl -m d:o:--- /data/mephi-2026/
+  139  clear
+  140  which tcpdump
+  141  sudo ls -l /usr/sbin/tcpdump 
+  142  getcap /usr/sbin/tcpdump
+  143  tcpdump -i any
+  144  $ sudo -u user1 tcpdump
+  145   sudo -u user1 tcpdump
+  146  which sudo
+  147  ls -l /usr/bin/sudo
+  148  sudo ls -l /usr/bin/sudo
+  149  sudo chmod u+s /usr/sbin/tcpdump
+  150  sudo ls -l /usr/sbin/tcpdump 
+  151  sudo -u user1 tcpdump
+  152  clear
+  153  sestatus
+  154  clear
+  155  sudo ls /etc/nginx
+  156  sudo nano /etc/nginx/nginx.conf
+  157  sudo grep -R "root" /etc/nginx
+  158  sudo nano /etc/nginx/nginx.conf
+  159  cd /etc/nginx
+  160  ls
+  161  cd default.d/
+  162  ls
+  163  ls -a
+  164  cd ..
+  165  ls
+  166  clear
+  167  sudo nginx -t
+  168  sudo nginx T
+  169  sudo nginx -T
+  170  clear
+  171  ls /usr/share/
+  172  ls /usr/share/nginx/html
+  173  cp /usr/share/nginx/html/index.html /mephi-web
+  174  sudo ls /mephi-web
+  175  findmnt /mephi-web 
+  176  df -ah /mephi-web
+  177  sudo ls -ld /mephi-web
+  178  clear
+  179  sudo cp /usr/share/nginx/html/index.html /mephi-web
+  180  getenforce
+  181  sudo systemctl reload nginx
+  182  curl http://localhost
+  183  ls -lZ /mephi-web/index.html
+  184  ls -ldZ /mephi-web
+  185  ls -ldZ /usr/share/nginx/html
+  186  ls -lZ /usr/share/nginx/html/index.html
+  187  sudo semanage fcontext -a -t httpd_sys_content_t "/mephi-web(/.*)?"
+  188  ckear
+  189  clear
+  190  sudo nano /etc/security/pwquality.conf
+  191  sudo nano /etc/login.defs
+  192  clear
+  193  sudo chage -M 90 user1
+  194  sudo chage -M 90 user2
+  195  sudo chage -M 90 user3
+  196  sudo chage -M 90 curator1
+  197  sudo chage -M 90 curator2
+  198  sudo passwd user1
+  199  clear
+  200  sudo passwd user1
+  201  sudo nano /etc/security/pwquality.conf
+  202  сдуфк
+  203  clear
+  204  sudo passwd user1
+  205  sudo nano /etc/security/pwquality.conf
+  206  sudo passwd user1
+  207  sudo -u user1 passwd
+  208  passwd -h
+  209  passwd --help
+  210  sudo passwd -d user1
+  211  sudo nano /etc/security/pwquality.conf
+  212  sudo -u user1 passwd
+  213  sudo -u curator1 passwd
+  214  sudo passwd -d curator1
+  215  sudo -u curator1 passwd
+  216  clear
+  217  sudo cat /etc/fstab > ~/fstab.out
+  218  sudo cat /etc/passwd > ~/passwd.out
+  219  sudo cat /etc/shadow > ~/shadow.out
+  220  sudo cat /etc/group > ~/group.out
+  221  sudo cat /etc/security/pwquality.conf > ~/pwquality.conf.out
+  222  scp --help
+  223  scp -h
+  224  pwd
+  225  ls
+  226  ls -h
+  227  ls -lh
+  228  sudo getcap /usr/sbin/tcpdump > ~/getcap.out
+  229  ls 
+  230  ls -lh
+  231  cat getcap.out 
+  232  clear
+  233  sudo chmod u-s /usr/sbin/tcpdump
+  234  sudo setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
+  235  ls -l /usr/sbin/tcpdump
+  236  getcap /usr/sbin/tcpdump
+  237  sudo -u user1 tcpdump -i any -c 5
+  238  history > ~/history.out 
