@@ -1,0 +1,14 @@
+ Static hostname: mephi-2026.domain.local
+       Icon name: computer-vm
+         Chassis: vm 🖴
+      Machine ID: 23000007fc9a6da5030d494e2414fd1d
+         Boot ID: b95e8818c01749ebb9a393ad42654a27
+  Virtualization: kvm
+Operating System: RED OS 8.0
+     CPE OS Name: cpe:/o:redos:redos:8
+          Kernel: Linux 6.12.101-1.red80.x86_64
+    Architecture: x86-64
+ Hardware Vendor: Yandex
+  Hardware Model: xeon-gold-6338
+Firmware Version: 1.16.3-1
+   Firmware Date: Tue 2014-04-01

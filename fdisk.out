@@ -1,0 +1,27 @@
+#---------------------------------------------------------------------------------------------#
+# Вывод fdisk -l /dev/vdb
+#---------------------------------------------------------------------------------------------#
+
+Disk /dev/vdb: 1 GiB, 1073741824 bytes, 2097152 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disklabel type: gpt
+Disk identifier: 5CE0E185-E787-9443-A544-DD91259F1D8F
+
+Device     Start     End Sectors  Size Type
+/dev/vdb1   2048 2095103 2093056 1022M Linux filesystem
+
+
+#---------------------------------------------------------------------------------------------#
+# Вывод lsblk -f
+#---------------------------------------------------------------------------------------------#
+
+
+NAME   FSTYPE FSVER LABEL      UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+zram0                                                                              [SWAP]
+vda                                                                                
+├─vda1                                                                             
+└─vda2 ext4   1.0   redos-root deb99a7f-7360-4ed1-b832-cfda86f482e1   14.6G    21% /
+vdb                                                                                
+└─vdb1 ext4   1.0   MEPHI_WEB  c710c483-9856-4781-8e00-44a535b3f36f  920.3M     0% /mephi-web
